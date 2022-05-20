@@ -77,6 +77,7 @@ public class Player : MonoBehaviour
             float diffSecs = currentTime - lastPressTime;
             if (diffSecs >= energyCooldown)
             {
+                AudioController.current.PlayMusic(AudioController.current.sfx);
                 if (!sprite.flipX)
                 {
                     lastPressTime = currentTime;
@@ -113,6 +114,7 @@ public class Player : MonoBehaviour
             coll.gameObject.GetComponent<Animator>().SetTrigger("hit");
             coll.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             Destroy(coll.gameObject, 2f);
+            AudioController.current.PlayMusic(AudioController.current.anotherSfx);
         } 
     }
 
